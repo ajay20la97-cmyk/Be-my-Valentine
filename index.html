@@ -1,117 +1,117 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-<meta charset="UTF-8" />  
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-<title>For Pratibha ❤️</title>  
-  
-<style>  
-body {  
-  height: 100vh;  
-  margin: 0;  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);  
-  font-family: 'Segoe UI', sans-serif;  
-}  
-  
-.card {  
-  background: white;  
-  padding: 35px;  
-  border-radius: 20px;  
-  text-align: center;  
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);  
-  width: 90%;  
-  max-width: 420px;  
-}  
-  
-h1 {  
-  color: #ff4d6d;  
-  margin-bottom: 15px;  
-}  
-  
-.shayari {  
-  font-size: 18px;  
-  color: #444;  
-  margin-bottom: 20px;  
-  line-height: 1.6;  
-  font-style: italic;  
-}  
-  
-.date {  
-  font-size: 15px;  
-  color: #777;  
-  margin-bottom: 25px;  
-}  
-  
-.buttons {  
-  position: relative;  
-  height: 130px;  
-}  
-  
-button {  
-  padding: 15px 30px;  
-  font-size: 18px;  
-  border: none;  
-  border-radius: 12px;  
-  cursor: pointer;  
-  position: absolute;  
-}  
-  
-#yes {  
-  background-color: #ff4d6d;  
-  color: white;  
-  left: 50%;  
-  transform: translateX(-50%);  
-}  
-  
-#no {  
-  background-color: #adb5bd;  
-  color: white;  
-}  
-  
-.heart {  
-  font-size: 40px;  
-  margin-top: 20px;  
-  animation: pulse 1.5s infinite;  
-}  
-  
-@keyframes pulse {  
-  0% { transform: scale(1); }  
-  50% { transform: scale(1.2); }  
-  100% { transform: scale(1); }  
-}  
-</style>  
-</head>  
-  
-<body>  
-  
-<audio id="bg-music" autoplay loop>  
-  <source src="song.mp3" type="audio/mpeg">  
-</audio>  
-  
-<div class="card">  
-  <h1>Pratibha, will you be my Valentine? 💖</h1>  
-  
-  <div class="shayari">  
-    “Tum meri woh dua ho jo qabool ho chuki hai,<br>  
-    Tum meri woh zindagi ho jo ab meri ho chuki hai.”  
-  </div>  
-  
-  <div class="date">  
-    Our Wedding Day — <b>21st February 2026</b> 💍  
-  </div>  
-  
-  <div class="buttons">  
-    <button id="yes" onclick="yesClicked()">YES 😍</button>  
-    <button id="no">NO 🙈</button>  
-  </div>  
-  
-  <div class="heart">❤️</div>  
-</div>  
-  
-<script>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Pratibha ❤️</title>
+
+<style>
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 420px;
+}
+
+h1 {
+  color: #ff4d6d;
+  margin-bottom: 15px;
+}
+
+.shayari {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.date {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  position: relative;
+  height: 130px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: absolute;
+}
+
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#no {
+  background-color: #adb5bd;
+  color: white;
+}
+
+.heart {
+  font-size: 40px;
+  margin-top: 20px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bg-music" autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>Pratibha, will you be my Valentine? 💖</h1>
+
+  <div class="shayari">
+    “Tum meri woh dua ho jo qabool ho chuki hai,<br>
+    Tum meri woh zindagi ho jo ab meri ho chuki hai.”
+  </div>
+
+  <div class="date">
+    Our Wedding Day — <b>21st February 2026</b> 💍
+  </div>
+
+  <div class="buttons">
+    <button id="yes" onclick="yesClicked()">YES 😍</button>
+    <button id="no">NO 🙈</button>
+  </div>
+
+  <div class="heart">❤️</div>
+</div>
+
+<script>
 const noButton = document.getElementById("no");  
 const music = document.getElementById("bg-music");  
 music.volume = 0.4;  
@@ -120,16 +120,16 @@ document.addEventListener("click", () => {
   music.play().catch(() => {});  
 });  
 
-// PLAYFUL NO MESSAGES LOGIC  
+// 20 playful NO messages
 const noMessages = [
   "Please, think again 😅",
   "Yrr aise mat kro 😭",
   "Acha!! Akele jina h kya puri life?😝",
   "Mujhse acha hai bhla koi😏",
   "Sach mein naa kr rahi ho? 🫠😔",
-  "Soch lo, yeh last chance hai ",
+  "Soch lo, yeh last chance hai",
   "Lock ho jayga pagl,😑",
-  "Tum nhi Manogi, hai na? 🤪", 
+  "Tum nhi Manogi, hai na? 🤪",
   "Ab NO kiya toh dekh lo 😇",
   "Bs ab krliya maine decide!! kahin nahi ja raha mai 7 jnm bhi 😆Bhugtiyo ab 😎",
   "Haan kar de, mujh sa nahi milne ka🤌😌",
@@ -137,18 +137,15 @@ const noMessages = [
   "Dhitt ho puri, hai na! 😏",
   "Kya socha tha No krke bach jaogee 🤪, ab mujhse nahi bhag sakti 🤭",
   "Meri khushi brdashtt nhi hoti hai na, Han nhi kr rahi😑",
-  "Is motu ki patlu banogi? 🙈", 
+  "Is motu ki patlu banogi? 🙈",
   "Duniya ke best decision hai phr bhi itna soch rahi. Pagl ho katii",
   "NO mat bolo, aur sochogi toh pyaar ho jayga 😏",
   "Haan karna hi hai, dramebaaz 😆😏",
-  "Tere bina adhoori h life, Kambakt say Yes na😘",
+  "Tere bina adhoori h life, Kambakt say Yes na😘"
 ];
 
 let messageIndex = 0; 
-let noTransformStage = 0; // 0 = messages, 1 = first big yes, 2 = final yes
-
-noButton.addEventListener("mouseover", moveNo);
-noButton.addEventListener("click", moveNo);
+let noTransformStage = 0; 
 
 function moveNo() {
   if (noTransformStage === 0) {
@@ -158,7 +155,6 @@ function moveNo() {
       noTransformStage = 1;
     }
 
-    // Move randomly
     const x = Math.random() * 260;
     const y = Math.random() * 90;
     noButton.style.left = x + "px";
@@ -185,14 +181,16 @@ function moveNo() {
   }
 }
 
-// YES BUTTON LOGIC
+noButton.addEventListener("mouseover", moveNo);
+noButton.addEventListener("click", moveNo);
+
 function yesClicked() {
   music.pause();
-
+  
   const weddingDate = new Date("Feb 21, 2026 00:00:00").getTime();
 
   document.body.innerHTML = `
-    <div style="
+    <div id="success-screen" style="
       height:100vh;
       display:flex;
       justify-content:center;
@@ -214,24 +212,24 @@ function yesClicked() {
           to being my wife…<br><br>
           <b>21st February</b> is just the beginning 💕
         </p>
+        <h2 id="countdown" style="color:#ff4d6d;"></h2>
       </div>
     </div>
   `;
 
-  // Countdown inside the success screen
-  const countdownEl = document.getElementById("countdown");
-  if (countdownEl) {
-    const x = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-      countdownEl.innerHTML = days + " days " + hours + " hrs " + minutes + " mins to forever ❤️";
-    }, 1000);
-  }
-}
-</script>  
+  // Wedding countdown
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
 
-</body>   
+    document.getElementById("countdown").innerHTML =
+      days + " days " + hours + " hrs " + minutes + " mins to forever ❤️";
+  }, 1000);
+}
+</script>
+
+</body>
 </html>
