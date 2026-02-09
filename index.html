@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For Prati ❤️</title>
+<title>For Pratibha ❤️</title>
 
 <style>
 body {
@@ -92,7 +92,7 @@ button {
 </audio>
 
 <div class="card">
-  <h1>Prati, will you be my Valentine? 💖</h1>
+  <h1>Pratibha, will you be my Valentine? 💖</h1>
 
   <div class="shayari">
     “Tum meri woh dua ho jo qabool ho chuki hai,<br>
@@ -100,11 +100,58 @@ button {
   </div>
 
   <div class="date">
-    Our Wedding Day — <b>21st February</b> 💍
+    Our Wedding Day — <b>21st February 2026</b> 💍
   </div>
 
   <div class="buttons">
-    <button id="yes" onclick="yesClicked()">YES 😍</button>
+    <button id="yes" onclick="<script>
+function yesClicked() {
+
+  const weddingDate = new Date("Feb 21, 2026 00:00:00").getTime();
+
+  document.body.innerHTML = `
+    <div id="success-screen" style="
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:url('photo.jpg') center/cover no-repeat;
+      font-family:'Segoe UI',sans-serif;
+      text-align:center;
+    ">
+      <div style="
+        background:rgba(255,255,255,0.9);
+        padding:40px;
+        border-radius:20px;
+        box-shadow:0 15px 30px rgba(0,0,0,0.2);
+        max-width:420px;
+      ">
+        <h1 style="color:#ff4d6d;">It was always YOU 💍❤️</h1>
+        <p style="font-size:20px; line-height:1.6;">
+          From being my Valentine<br>
+          to being my wife…<br><br>
+          <b>21st February</b> is just the beginning 💕
+        </p>
+
+        <h2 id="countdown" style="color:#ff4d6d;"></h2>
+      </div>
+    </div>
+  `;
+
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+
+    document.getElementById("countdown").innerHTML =
+      days + " days " + hours + " hrs " + minutes + " mins to forever ❤️";
+
+  }, 1000);
+}
+</script>">YES 😍</button>
     <button id="no">NO 🙈</button>
   </div>
 
