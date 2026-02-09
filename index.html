@@ -26,7 +26,10 @@ body {
   max-width: 420px;
 }
 
-h1 { color: #ff4d6d; margin-bottom: 15px; }
+h1 {
+  color: #ff4d6d;
+  margin-bottom: 15px;
+}
 
 .shayari {
   font-size: 18px;
@@ -36,9 +39,16 @@ h1 { color: #ff4d6d; margin-bottom: 15px; }
   font-style: italic;
 }
 
-.date { font-size: 15px; color: #777; margin-bottom: 25px; }
+.date {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 25px;
+}
 
-.buttons { position: relative; height: 130px; }
+.buttons {
+  position: relative;
+  height: 130px;
+}
 
 button {
   padding: 15px 30px;
@@ -56,9 +66,16 @@ button {
   transform: translateX(-50%);
 }
 
-#no { background-color: #adb5bd; color: white; }
+#no {
+  background-color: #adb5bd;
+  color: white;
+}
 
-.heart { font-size: 40px; margin-top: 20px; animation: pulse 1.5s infinite; }
+.heart {
+  font-size: 40px;
+  margin-top: 20px;
+  animation: pulse 1.5s infinite;
+}
 
 @keyframes pulse {
   0% { transform: scale(1); }
@@ -70,9 +87,7 @@ button {
 
 <body>
 
-<audio id="bg-music" loop>
-  <source src="song1.mp3" type="audio/mpeg">
-</audio>
+<audio id="bg-music" loop></audio>
 
 <div class="card">
   <h1>Pratibha, will you be my Valentine? 💖</h1>
@@ -95,19 +110,11 @@ button {
 </div>
 
 <script>
-const noButton = document.getElementById("no");
-const music = document.getElementById("bg-music");
-music.volume = 0.4;
+const noButton = document.getElementById("no");  
+const music = document.getElementById("bg-music");  
+music.volume = 0.4;  
 
-// autoplay on first click
-let musicStarted = false;
-document.addEventListener("click", () => {
-  if(!musicStarted) {
-    music.play().catch(()=>{});
-    musicStarted = true;
-  }
-});
-
+// 26 playful NO messages
 const noMessages = [
   "Please, think again 😅",
   "Yrr aise mat kro 😭",
@@ -130,19 +137,30 @@ const noMessages = [
   "Haan karna hi hai, dramebaaz 😆😏",
   "Tere bina adhoori h life, Kambakt say Yes na😘",
   "Arey Tu Haan Kar Ya Naa Kar, Teri Marzi Soniyee",
-  "Hum Tujhko Utha Kar Le Jayenge"
+  "Hum Tujhko Utha Kar Le Jayenge",
+  "😏",
+  "😏😏",
+  "Bhul jaa ab is janam mein teri booking hogi",
 ];
 
-let messageIndex = 0;
-let noTransformStage = 0;
+let messageIndex = 0; 
+let noTransformStage = 0; 
+let musicStarted = false;
 
 function moveNo() {
+  // Start first song on first NO click
+  if(!musicStarted) {
+    music.src = "song1.mp3"; // <-- replace with first song link
+    music.play().catch(()=>{});
+    musicStarted = true;
+  }
+
   if(noTransformStage === 0) {
     noButton.innerText = noMessages[messageIndex];
-    
-    // switch song when special line comes
+
+    // Switch to second song on specific line
     if(noMessages[messageIndex] === "Arey Tu Haan Kar Ya Naa Kar, Teri Marzi Soniyee") {
-      music.src = "song2.mp3";
+      music.src = "song2.mp3"; // <-- replace with second song link
       music.play().catch(()=>{});
     }
 
@@ -213,6 +231,7 @@ function yesClicked() {
     </div>
   `;
 
+  // Wedding countdown
   const x = setInterval(function() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
