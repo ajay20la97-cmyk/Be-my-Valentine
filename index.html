@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>For Pratibha ❤️</title>
+
 <style>
 body {
   height: 100vh;
@@ -11,9 +12,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   font-family: 'Segoe UI', sans-serif;
 }
+
 .card {
   background: white;
   padding: 35px;
@@ -23,56 +25,98 @@ body {
   width: 90%;
   max-width: 420px;
 }
-h1 { color:#ff4d6d; margin-bottom:15px;}
-.shayari { font-size:18px;color:#444;margin-bottom:20px;line-height:1.6;font-style:italic;}
-.date { font-size:15px;color:#777;margin-bottom:25px;}
-.buttons { position: relative; height: 130px;}
-button { padding:15px 30px;font-size:18px;border:none;border-radius:12px;cursor:pointer;position:absolute;}
-#yes { background-color:#ff4d6d;color:white; left:50%; transform:translateX(-50%);}
-#no { background-color:#adb5bd;color:white;}
-.heart { font-size:40px; margin-top:20px; animation:pulse 1.5s infinite;}
-@keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.2);}100%{transform:scale(1);}}
+
+h1 { color: #ff4d6d; margin-bottom: 15px; }
+
+.shayari {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.date { font-size: 15px; color: #777; margin-bottom: 25px; }
+
+.buttons { position: relative; height: 130px; }
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: absolute;
+}
+
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#no { background-color: #adb5bd; color: white; }
+
+.heart { font-size: 40px; margin-top: 20px; animation: pulse 1.5s infinite; }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
 </style>
 </head>
+
 <body>
 
-<audio id="bg-music" autoplay loop>
+<audio id="bg-music" loop>
   <source src="song1.mp3" type="audio/mpeg">
 </audio>
 
-<div class="card" id="card">
+<div class="card">
   <h1>Pratibha, will you be my Valentine? 💖</h1>
+
   <div class="shayari">
     “Tum meri woh dua ho jo qabool ho chuki hai,<br>
     Tum meri woh zindagi ho jo ab meri ho chuki hai.”
   </div>
+
   <div class="date">
     Our Wedding Day — <b>21st February 2026</b> 💍
   </div>
+
   <div class="buttons">
-    <button id="yes">YES 😍</button>
+    <button id="yes" onclick="yesClicked()">YES 😍</button>
     <button id="no">NO 🙈</button>
   </div>
+
   <div class="heart">❤️</div>
 </div>
 
 <script>
 const noButton = document.getElementById("no");
-const yesButton = document.getElementById("yes");
-const card = document.getElementById("card");
 const music = document.getElementById("bg-music");
 music.volume = 0.4;
 
-// NO messages
+// autoplay on first click
+let musicStarted = false;
+document.addEventListener("click", () => {
+  if(!musicStarted) {
+    music.play().catch(()=>{});
+    musicStarted = true;
+  }
+});
+
 const noMessages = [
   "Please, think again 😅",
   "Yrr aise mat kro 😭",
   "Acha!! Akele jina h kya puri life?😝",
-  "Mujhse acha bhla koi😏",
+  "Mujhse acha bhla koi?😏",
   "Sach mein naa kr rahi ho? 🫠😔",
   "Soch lo, yeh last chance hai",
   "Lock ho jayga pagl,😑",
-  "Tum nhi Manogi, hai na? 🤪",
+  "Tum nhi Manogi, hai na? 🤪", 
   "Ab NO kiya toh dekh lo 😇",
   "Bs ab krliya maine decide!! kahin nahi ja raha mai 7 jnm bhi 😆Bhugtiyo ab 😎",
   "Haan kar de, mujh sa nahi milne ka🤌😌",
@@ -85,30 +129,34 @@ const noMessages = [
   "NO mat bolo, aur sochogi toh pyaar ho jayga 😏",
   "Haan karna hi hai, dramebaaz 😆😏",
   "Tere bina adhoori h life, Kambakt say Yes na😘",
-  "Arey tu Haan Kr Ya Naa Kr, Teri Marzi Soniyee",
+  "Arey Tu Haan Kar Ya Naa Kar, Teri Marzi Soniyee",
   "Hum Tujhko Utha Kar Le Jayenge"
 ];
 
-let msgIndex = 0;
-let stage = 0;
+let messageIndex = 0;
+let noTransformStage = 0;
 
 function moveNo() {
-  if(stage === 0){
-    noButton.innerText = noMessages[msgIndex];
-
-    if(noMessages[msgIndex] === "Arey tu Haan Kr Ya Naa Kr, Teri Marzi Soniyee"){
-      music.src = "song2.mp3"; // switch song
-      music.play();
+  if(noTransformStage === 0) {
+    noButton.innerText = noMessages[messageIndex];
+    
+    // switch song when special line comes
+    if(noMessages[messageIndex] === "Arey Tu Haan Kar Ya Naa Kar, Teri Marzi Soniyee") {
+      music.src = "song2.mp3";
+      music.play().catch(()=>{});
     }
 
-    msgIndex++;
-    if(msgIndex >= noMessages.length) stage = 1;
+    messageIndex++;
+    if(messageIndex >= noMessages.length) {
+      noTransformStage = 1;
+    }
 
     const x = Math.random() * 260;
     const y = Math.random() * 90;
     noButton.style.left = x + "px";
     noButton.style.top = y + "px";
-  } else if(stage === 1){
+  }
+  else if(noTransformStage === 1) {
     noButton.innerText = "Big Yess I Love You, idiot ❤️";
     noButton.style.backgroundColor = "#ff4d6d";
     noButton.style.color = "white";
@@ -116,40 +164,67 @@ function moveNo() {
     noButton.style.left = "50%";
     noButton.style.top = "60px";
     noButton.style.transform = "translateX(-50%)";
-    stage = 2;
-  } else if(stage === 2){
+    noTransformStage = 2;
+  }
+  else if(noTransformStage === 2) {
     noButton.innerText = "Yessssss, today, tomorrow and always I'm yours 💕";
+    noButton.style.backgroundColor = "#ff4d6d";
+    noButton.style.color = "white";
+    noButton.style.fontSize = "20px";
+    noButton.style.left = "50%";
+    noButton.style.top = "60px";
+    noButton.style.transform = "translateX(-50%)";
   }
 }
 
 noButton.addEventListener("mouseover", moveNo);
 noButton.addEventListener("click", moveNo);
 
-yesButton.addEventListener("click", () => {
+function yesClicked() {
   music.pause();
-  const weddingDate = new Date("Feb 21, 2026 13:30:00").getTime();
+  
+  const weddingDate = new Date("Feb 21, 2026 00:00:00").getTime();
 
-  card.innerHTML = `
-    <h1 style="color:#ff4d6d;">It was always YOU 💍❤️</h1>
-    <p style="font-size:20px; line-height:1.6;">
-      From being my Valentine<br>
-      to being my wife…<br><br>
-      <b>21st February</b> is just the beginning 💕
-    </p>
-    <h2 id="countdown" style="color:#ff4d6d;"></h2>
+  document.body.innerHTML = `
+    <div id="success-screen" style="
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+      font-family:'Segoe UI',sans-serif;
+      text-align:center;
+    ">
+      <div style="
+        background:white;
+        padding:40px;
+        border-radius:20px;
+        box-shadow:0 15px 30px rgba(0,0,0,0.2);
+        max-width:420px;
+      ">
+        <h1 style="color:#ff4d6d;">It was always YOU 💍❤️</h1>
+        <p style="font-size:20px; line-height:1.6;">
+          From being my Valentine<br>
+          to being my wife…<br><br>
+          <b>21st February</b> is just the beginning 💕
+        </p>
+        <h2 id="countdown" style="color:#ff4d6d;"></h2>
+      </div>
+    </div>
   `;
 
-  setInterval(()=>{
+  const x = setInterval(function() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
-    const days = Math.floor(distance / (1000*60*60*24));
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
     const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
 
-    document.getElementById("countdown").innerText = 
+    document.getElementById("countdown").innerHTML =
       days + " days " + hours + " hrs " + minutes + " mins to forever ❤️";
-  },1000);
-});
+  }, 1000);
+}
 </script>
+
 </body>
 </html>
