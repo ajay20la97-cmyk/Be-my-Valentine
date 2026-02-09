@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,16 +115,16 @@ const noButton = document.getElementById("no");
 const music = document.getElementById("bg-music");  
 music.volume = 0.4;  
 
-// 26 playful NO messages
+// All your NO messages exactly as before
 const noMessages = [
   "Please, think again 😅",
   "Yrr aise mat kro 😭",
   "Acha!! Akele jina h kya puri life?😝",
-  "Mujhse acha bhla koi?😏",
+  "Mujhse acha bhla koi😏",
   "Sach mein naa kr rahi ho? 🫠😔",
   "Soch lo, yeh last chance hai",
   "Lock ho jayga pagl,😑",
-  "Tum nhi Manogi, hai na? 🤪", 
+  "Tum nhi Manogi, hai na? 🤪",
   "Ab NO kiya toh dekh lo 😇",
   "Bs ab krliya maine decide!! kahin nahi ja raha mai 7 jnm bhi 😆Bhugtiyo ab 😎",
   "Haan kar de, mujh sa nahi milne ka🤌😌",
@@ -131,16 +132,17 @@ const noMessages = [
   "Dhitt ho puri, hai na! 😏",
   "Kya socha tha No krke bach jaogee 🤪, ab mujhse nahi bhag sakti 🤭",
   "Meri khushi brdashtt nhi hoti hai na, Han nhi kr rahi😑",
-  "Is motu ki patlu banogi? 🙈", 
+  "Is motu ki patlu banogi? 🙈",
   "Duniya ke best decision hai phr bhi itna soch rahi. Pagl ho katii",
   "NO mat bolo, aur sochogi toh pyaar ho jayga 😏",
   "Haan karna hi hai, dramebaaz 😆😏",
   "Tere bina adhoori h life, Kambakt say Yes na😘",
   "Arey Tu Haan Kar Ya Naa Kar, Teri Marzi Soniyee",
   "Hum Tujhko Utha Kar Le Jayenge",
-  "😏",
-  "😏😏",
-  "Bhul jaa ab is janam mein teri booking hogi",
+  "Bas, ab tu meri hi hai ❤️",
+  "Yessssss, today, tomorrow and always I'm yours 💕",
+  "Chalo ab sach mein Yes kar hi lo 😎",
+  "Mujhse pyaar hai na? 😘"
 ];
 
 let messageIndex = 0;
@@ -148,8 +150,9 @@ let noTransformStage = 0;
 let musicStarted = false;
 
 function moveNo() {
+  // start first song on first click
   if (!musicStarted) {
-    music.src = "song1.mp3"; // first song plays on first click
+    music.src = "song1.mp3"; 
     music.play();
     musicStarted = true;
   }
@@ -157,14 +160,15 @@ function moveNo() {
   if (noTransformStage === 0) {
     noButton.innerText = noMessages[messageIndex];
     messageIndex++;
-    if (messageIndex >= noMessages.length) {
-      noTransformStage = 1;
-    }
 
-    // if we reach the specific line, change song
+    // switch to second song if that line comes
     if (noButton.innerText === "Arey Tu Haan Kar Ya Naa Kar, Teri Marzi Soniyee") {
       music.src = "song2.mp3";
       music.play();
+    }
+
+    if (messageIndex >= noMessages.length) {
+      noTransformStage = 1;
     }
 
     const x = Math.random() * 260;
@@ -199,7 +203,7 @@ noButton.addEventListener("click", moveNo);
 function yesClicked() {
   music.pause();
 
-  const weddingDate = new Date("Feb 21, 2026 13:30:00").getTime();
+  const weddingDate = new Date("Feb 21, 2026 00:00:00").getTime();
 
   document.body.innerHTML = `
     <div id="success-screen" style="
