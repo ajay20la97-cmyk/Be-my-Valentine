@@ -26,10 +26,7 @@ body {
   max-width: 420px;
 }
 
-h1 {
-  color: #ff4d6d;
-  margin-bottom: 15px;
-}
+h1 { color: #ff4d6d; margin-bottom: 15px; }
 
 .shayari {
   font-size: 18px;
@@ -39,16 +36,9 @@ h1 {
   font-style: italic;
 }
 
-.date {
-  font-size: 15px;
-  color: #777;
-  margin-bottom: 25px;
-}
+.date { font-size: 15px; color: #777; margin-bottom: 25px; }
 
-.buttons {
-  position: relative;
-  height: 130px;
-}
+.buttons { position: relative; height: 130px; }
 
 button {
   padding: 15px 30px;
@@ -66,10 +56,7 @@ button {
   transform: translateX(-50%);
 }
 
-#no {
-  background-color: #adb5bd;
-  color: white;
-}
+#no { background-color: #adb5bd; color: white; }
 
 .heart {
   font-size: 40px;
@@ -104,54 +91,7 @@ button {
   </div>
 
   <div class="buttons">
-    <button id="yes" onclick="<script>
-function yesClicked() {
-
-  const weddingDate = new Date("Feb 21, 2026 00:00:00").getTime();
-
-  document.body.innerHTML = `
-    <div id="success-screen" style="
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:url('photo.jpg') center/cover no-repeat;
-      font-family:'Segoe UI',sans-serif;
-      text-align:center;
-    ">
-      <div style="
-        background:rgba(255,255,255,0.9);
-        padding:40px;
-        border-radius:20px;
-        box-shadow:0 15px 30px rgba(0,0,0,0.2);
-        max-width:420px;
-      ">
-        <h1 style="color:#ff4d6d;">It was always YOU 💍❤️</h1>
-        <p style="font-size:20px; line-height:1.6;">
-          From being my Valentine<br>
-          to being my wife…<br><br>
-          <b>21st February</b> is just the beginning 💕
-        </p>
-
-        <h2 id="countdown" style="color:#ff4d6d;"></h2>
-      </div>
-    </div>
-  `;
-
-  const x = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-
-    document.getElementById("countdown").innerHTML =
-      days + " days " + hours + " hrs " + minutes + " mins to forever ❤️";
-
-  }, 1000);
-}
-</script>">YES 😍</button>
+    <button id="yes">YES 😍</button>
     <button id="no">NO 🙈</button>
   </div>
 
@@ -160,6 +100,7 @@ function yesClicked() {
 
 <script>
 const noButton = document.getElementById("no");
+const yesButton = document.getElementById("yes");
 const music = document.getElementById("bg-music");
 
 music.volume = 0.4;
@@ -178,8 +119,13 @@ function moveNo() {
   noButton.style.top = y + "px";
 }
 
+// ✅ Main YES button function
+yesButton.addEventListener("click", yesClicked);
+
 function yesClicked() {
   music.pause();
+
+  const weddingDate = new Date("Feb 21, 2026 00:00:00").getTime();
 
   document.body.innerHTML = `
     <div style="
@@ -187,12 +133,12 @@ function yesClicked() {
       display:flex;
       justify-content:center;
       align-items:center;
-      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+      background:url('https://drive.google.com/uc?export=view&id=1ekGELwO_PwC315Ofc8qVH80gQGWue4rG') center/cover no-repeat;
       font-family:'Segoe UI',sans-serif;
       text-align:center;
     ">
       <div style="
-        background:white;
+        background:rgba(255,255,255,0.9);
         padding:40px;
         border-radius:20px;
         box-shadow:0 15px 30px rgba(0,0,0,0.2);
@@ -204,22 +150,25 @@ function yesClicked() {
           to being my wife…<br><br>
           <b>21st February</b> is just the beginning 💕
         </p>
+        <h2 id="countdown" style="color:#ff4d6d;"></h2>
       </div>
     </div>
   `;
+
+  // ✅ Countdown logic
+  const countdownEl = document.getElementById("countdown");
+  setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+
+    countdownEl.innerHTML = days + " days " + hours + " hrs " + minutes + " mins to forever ❤️";
+  }, 1000);
 }
 </script>
-  <script>
-function onYesClick() {
-  document.body.style.backgroundImage =
-    "url('https://drive.google.com/uc?export=view&id=19mnYvhqg5ASNnjWxs0veNzcUZKZ5XZK1')";
-  document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundPosition = "center";
-  document.body.style.backgroundRepeat = "no-repeat";
 
-  // existing YES logic stays untouched
-}
-  </script>
-
-</body> 
+</body>
 </html>
