@@ -86,17 +86,14 @@ const noMessages = [
   "Haan karna hi hai, dramebaaz 😆😏",
   "Tere bina adhoori h life, Kambakt say Yes na😘",
   "Arey tu Haan Kr Ya Naa Kr, Teri Marzi Soniyee",
-  "Hum Tujhko Utha Kar Le Jayenge",
-  "Big Yess I Love You, idiot ❤️",
-  "Yessssss, today, tomorrow and always I'm yours 💕"
+  "Hum Tujhko Utha Kar Le Jayenge"
 ];
 
 let msgIndex = 0;
 let stage = 0;
 
-// Move NO button
 function moveNo() {
-  if(stage === 0) {
+  if(stage === 0){
     noButton.innerText = noMessages[msgIndex];
 
     if(noMessages[msgIndex] === "Arey tu Haan Kr Ya Naa Kr, Teri Marzi Soniyee"){
@@ -105,7 +102,7 @@ function moveNo() {
     }
 
     msgIndex++;
-    if(msgIndex >= 20) stage = 1;
+    if(msgIndex >= noMessages.length) stage = 1;
 
     const x = Math.random() * 260;
     const y = Math.random() * 90;
@@ -128,12 +125,9 @@ function moveNo() {
 noButton.addEventListener("mouseover", moveNo);
 noButton.addEventListener("click", moveNo);
 
-// YES button
-yesButton.addEventListener("click", yesClicked);
-
-function yesClicked(){
+yesButton.addEventListener("click", () => {
   music.pause();
-  const weddingDate = new Date("Feb 21, 2026 00:00:00").getTime();
+  const weddingDate = new Date("Feb 21, 2026 13:30:00").getTime();
 
   card.innerHTML = `
     <h1 style="color:#ff4d6d;">It was always YOU 💍❤️</h1>
@@ -145,7 +139,7 @@ function yesClicked(){
     <h2 id="countdown" style="color:#ff4d6d;"></h2>
   `;
 
-  const x = setInterval(()=>{
+  setInterval(()=>{
     const now = new Date().getTime();
     const distance = weddingDate - now;
     const days = Math.floor(distance / (1000*60*60*24));
@@ -155,8 +149,7 @@ function yesClicked(){
     document.getElementById("countdown").innerText = 
       days + " days " + hours + " hrs " + minutes + " mins to forever ❤️";
   },1000);
-}
+});
 </script>
-
 </body>
 </html>
